@@ -22,18 +22,6 @@ const graduationSchema = new mongoose.Schema({
   },
 });
 
-const linkSchema = new mongoose.Schema({
-  link: {
-    type: String,
-    trim: true,
-    validate(value) {
-      if (!validator.isURL(value)) {
-        throw new Error("Invalid website URL.");
-      }
-    },
-  },
-});
-
 const userSchema = new mongoose.Schema(
   {
     firstName: {
@@ -85,7 +73,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-      minlength: 7,
+      minlength: 5,
       validate(value) {
         if (value.toLowerCase().includes("password")) {
           throw new Error('Password cannot contain "password"in it.');
@@ -106,22 +94,56 @@ const userSchema = new mongoose.Schema(
       required: true,
       default: false,
     },
-    githubLink: linkSchema,
-    blogLink: linkSchema,
-    linkedInLink: linkSchema,
-    behanceLink: linkSchema,
-    exp: {
-      title: {
-        type: String,
-      },
-      workspace: {
-        type: String,
-      },
-      duration: {
-        type: Number,
-      },
+    githubLink: {
+      type: String,
+      trim: true,
+      // validate(value) {
+      //   if (!validator.isURL(value)) {
+      //     throw new Error("Invalid website URL.");
+      //   }
+      // },
     },
-    skillsStudent: [
+    portfolioLink: {
+      type: String,
+      trim: true,
+      // validate(value) {
+      //   if (!validator.isURL(value)) {
+      //     throw new Error("Invalid website URL.");
+      //   }
+      // },
+    },
+    linkedInLink: {
+      type: String,
+      trim: true,
+      // validate(value) {
+      //   if (!validator.isURL(value)) {
+      //     throw new Error("Invalid website URL.");
+      //   }
+      // },
+    },
+    // behanceLink: {
+    //   type: String,
+    //   trim: true,
+    // validate(value) {
+    //   if (!validator.isURL(value)) {
+    //     throw new Error("Invalid website URL.");
+    //   }
+    // },
+    // },
+    exp: [
+      {
+        title: {
+          type: String,
+        },
+        workspace: {
+          type: String,
+        },
+        duration: {
+          type: Number,
+        },
+      },
+    ],
+    skillSet: [
       {
         name: {
           type: String,
@@ -139,17 +161,18 @@ const userSchema = new mongoose.Schema(
     graduation: graduationSchema,
     ssc: graduationSchema,
     hsc: graduationSchema,
+    title: String,
   },
   {
     timestamps: true,
   }
 );
 
-studentSchema.virtual("applications", {
-  ref: "Application",
-  localField: "_id",
-  foreignField: "applicant",
-});
+// studentSchema.virtual("applications", {
+//   ref: "Application",
+//   localField: "_id",
+//   foreignField: "applicant",
+// });
 
 userSchema.methods.generateAuthToken = async function () {
   const user = this;
@@ -190,26 +213,3 @@ userSchema.pre("save", async function (next) {
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
-
-/*
-
-
-
-
-
-const studentSchema = new mongoose.Schema({
-    title: String,
-    
-    degree: {
-        type: String,
-        trim: true
-    },
-    stream: {
-        type: String,
-        trim: true
-    }
-});
-
-
-
-*/

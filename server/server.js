@@ -17,7 +17,7 @@ const io = socketio(server, {
 });
 
 io.on("connection", (socket) => {
-  console.log("Connected to socket.io");
+  console.log("New Connection");
   socket.on("setup", (userData) => {
     socket.join(userData._id);
     socket.emit("connected");
@@ -43,7 +43,7 @@ io.on("connection", (socket) => {
   });
 
   socket.off("setup", () => {
-    console.log("USER DISCONNECTED");
+    console.log("User Discounted");
     socket.leave(userData._id);
   });
 });

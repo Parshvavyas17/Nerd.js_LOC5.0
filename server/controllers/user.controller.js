@@ -36,7 +36,7 @@ const logout = async (req, res) => {
 
 const getSelf = async (req, res) => {
   try {
-    res.status(200).send(req.user);
+    res.status(200).send({ user: req.user, token: req.user.token });
   } catch (error) {
     res.status(400).send(error);
   }
@@ -53,7 +53,27 @@ const getAllUsers = async (req, res) => {
 
 const updateSelf = async (req, res) => {
   const updates = Object.keys(req.body);
-  const validOperations = ["name", "email", "age", "password"];
+  const validOperations = [
+    "firstName",
+    "lastName",
+    "age",
+    "password",
+    "gender",
+    "mobileNo",
+    "avatar",
+    "isAdmin",
+    "githubLink",
+    "portfolioLink",
+    "linkedInLink",
+    "exp",
+    "skills",
+    "skillSet",
+    "currentCity",
+    "graduation",
+    "hsc",
+    "ssc",
+    "title",
+  ];
   const isUpdateValid = updates.every((update) =>
     validOperations.includes(update)
   );
