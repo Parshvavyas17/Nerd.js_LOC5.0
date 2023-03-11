@@ -6,7 +6,7 @@ import {
   AiFillProfile,
 } from "react-icons/ai";
 import { IoExtensionPuzzleSharp } from "react-icons/io5";
-import logo from '../assets/logo3.png'
+import logo from '../assets/Logo.png'
 
 const Sidebar = ({ selected }) => {
   const navs = {
@@ -29,7 +29,7 @@ const Sidebar = ({ selected }) => {
     <div className="h-screen w-1/5">
       <div className="flex flex-col h-2/3 justify-evenly ml-2">
         <div className="flex px-2">
-        <img src={logo} alt="HireIt" className="w-2/3"/>
+        <img src={logo} alt="HireIt" className="w-3/4  border-4 border-white rounded-lg"/>
         </div>
         {Object.keys(navs).map((key, index) => {
           if (key === selected) {

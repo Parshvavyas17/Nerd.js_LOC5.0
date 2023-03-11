@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import signup from "../../assets/companysignup.gif"
 import {useNavigate} from "react-router";
 const SignupCompany = () => {
 
@@ -41,7 +42,6 @@ const SignupCompany = () => {
         password: password,
         contactNo: contactNo,
         name: name,
-        typeOfCompany: typeOfCompany
 
       };
       console.log(data);
@@ -149,7 +149,7 @@ const SignupCompany = () => {
       <div>
         <img
           className="rounded-full w-10/12"
-          src="images/companysignup.gif"
+          src={signup}
           alt="signup"
         />
       </div>

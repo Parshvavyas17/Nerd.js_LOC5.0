@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import login from "../../assets/login.gif"
+import login from "../../assets/login.gif";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -94,11 +94,11 @@ const Login = () => {
           <div className="flex self-center font-medium text-[#313638]">
             <p>New User?</p>&nbsp;
             <p>Register</p>&nbsp; (
-            <a className="text-secondary underline hover:text-purple" href="/studentsignup">
-              Student
+            <a className="text-secondary underline hover:text-purple" href="/signup">
+              Applicant
             </a>
             /
-            <a className="text-secondary underline hover:text-purple" href="/signupcompany">
+            <a className="text-secondary underline hover:text-purple" href="/signup">
               Company
             </a>
             )

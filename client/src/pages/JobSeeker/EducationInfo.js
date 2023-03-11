@@ -172,7 +172,7 @@ const EducationInfo = () => {
                                     <input type='text' name='hscmarks' className="rounded-xl border border-purple w-96 p-1" onChange={handleHscMarks} />
                                 </div>
                             </div>
-                            <div className="flex flex-col min-w-full min-h-full mb-7">
+                            {/* <div className="flex flex-col min-w-full min-h-full mb-7">
                                 <label className="font-semibold text-lg">English Marks in XIIth:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
                                     <input type='text' name='hscschool' className="rounded-xl border border-purple w-96 p-1" />
@@ -189,7 +189,7 @@ const EducationInfo = () => {
                                 <div className="flex flex-row flex-wrap justify-between">
                                     <input type='text' name='hscschool' className="rounded-xl border border-purple w-96 p-1" />
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="flex flex-col min-w-full min-h-full mb-7">
                                 <label className="font-semibold text-lg">School Name*:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
@@ -202,7 +202,7 @@ const EducationInfo = () => {
                                     <input type='text' name='sscmarks' className="rounded-xl border border-purple w-96 p-1" onChange={handleSscMarks}/>
                                 </div>
                             </div>
-                            <div className="flex flex-col min-w-full min-h-full mb-7">
+                            {/* <div className="flex flex-col min-w-full min-h-full mb-7">
                                 <label className="font-semibold text-lg">English Marks in Xth:</label>
                                 <div className="flex flex-row flex-wrap justify-between">
                                     <input type='text' name='hscschool' className="rounded-xl border border-purple w-96 p-1"/>
@@ -219,7 +219,7 @@ const EducationInfo = () => {
                                 <div className="flex flex-row flex-wrap justify-between">
                                     <input type='text' name='hscschool' className="rounded-xl border border-purple w-96 p-1" />
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="flex flex-row-reverse min-w-full min-h-full mt-7">
                                 <button type="submit" className="flex-reverse align bg-purple rounded-xl text-white p-2 px-10" onClick={handleSubmit}>Add</button>
                             </div>
