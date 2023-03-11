@@ -75,7 +75,7 @@ const SignupCompany = () => {
                 <label className="text-left text-black">Company Type</label>
                 <select
                   className="w-[100%] rounded-lg p-1 text-black bg-white border-purple border-4"
-                  name="typeOfCompany" onChange={handleTypeChange}
+                  name="typeOfCompany" onChange={handleCompanyChange}
                 >
                   <option>Select</option>
                   <option value="Recruiter">Recruiter</option>
@@ -122,7 +122,7 @@ const SignupCompany = () => {
                 <label className="text-left text-black">Company Type</label>
                 <select
                   className="w-[100%] rounded-lg p-1 text-black bg-white border-purple border-4"
-                  name="typeOfCompany" onChange={handleCompanyChange}
+                  name="typeOfCompany"
                 >
                   <option>Select</option>
                   <option value="PbLc">Public Limited</option>
