@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <div>
             {/* left */}
-            <div className="flex justify-between bg-white grid grid-cols-2 shadow-xl">
+            <div className="justify-between bg-white shadow-xl">
                 <div className="image w-1/2">
                     <img src={logo} alt="logo" className="h-16 ml-10 px-10 mt-4 cursor-pointer"></img>
                 </div>
