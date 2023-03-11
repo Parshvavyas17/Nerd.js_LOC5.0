@@ -23,7 +23,7 @@ const SideBarCompany = ({ selected }) => {
     Profile: "/companydashboard",
     Dashboard: "/companydashboard",
     "Post Vacancy": "/companypostvacancy",
-    Applications: "/applicationcompany",
+    Applications: "/",
     Message: "",
   };
   return (

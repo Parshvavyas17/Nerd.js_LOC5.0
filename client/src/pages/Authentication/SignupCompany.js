@@ -9,7 +9,7 @@ const SignupCompany = () => {
   const [ password, setPassword ] = useState("");
   const [ name, setName ] = useState("");
   const [ contactNo, setContactNo ] = useState("");
-  const [ typeOfCompany, setTypeOfCompany ] = useState("");
+  const [ type, setTypeChange ] = useState("");
 
   const url = 'http://localhost:5000';
 
@@ -29,8 +29,8 @@ const SignupCompany = () => {
     setContactNo(e.target.value);
   }
 
-  const handleCompanyChange = (e) => {
-    setTypeOfCompany(e.target.value);
+  const handleTypeChange = (e) => {
+    setTypeChange(e.target.value);
   }
   
 
@@ -43,17 +43,20 @@ const SignupCompany = () => {
         password: password,
         contactNo: contactNo,
         name: name,
+        type:type
 
       };
       console.log(data);
-      const response = await axios.post(`${url}/company`, data);
+      const response = await axios.post(`${url}/api/user/signup`, data);
       console.log(response.data);
+      console.log("trtfcfd")
       localStorage.setItem("token", response.data.companyToken);
       localStorage.setItem("userType", "company");
       setEmail("");
       setPassword("");
       setName("");
       setContactNo("");
+      setTypeChange("");
       // alert("Successfully Registered");
       navigate("/companyinformation");
     } catch(error) {
@@ -61,8 +64,10 @@ const SignupCompany = () => {
       setPassword("");
       setName("");
       setContactNo("");
+      setTypeChange("");
       alert('Error occured while logging in');
     }
+    
   }
   return (
     <div className="bg-purple w-full h-screen flex text-white justify-evenly items-center font-main">
@@ -75,7 +80,7 @@ const SignupCompany = () => {
                 <label className="text-left text-black">Company Type</label>
                 <select
                   className="w-[100%] rounded-lg p-1 text-black bg-white border-purple border-4"
-                  name="typeOfCompany" onChange={handleCompanyChange}
+                  name="type" onChange={handleTypeChange}
                 >
                   <option>Select</option>
                   <option value="Recruiter">Recruiter</option>
