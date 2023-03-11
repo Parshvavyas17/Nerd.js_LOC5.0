@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const validator = require("validator");
+// const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -41,51 +41,47 @@ const userSchema = new mongoose.Schema(
     },
     mobileNo: {
       type: Number,
-      required: true,
-      validate(value) {
-        if (!validator.isMobilePhone(`${value}`)) {
-          throw new Error("Invalid phone number.");
-        }
-      },
+      // required: true,
+      // validate(value) {
+      //   if (!validator.isMobilePhone(`${value}`)) {
+      //     throw new Error("Invalid phone number.");
+      //   }
+      // },
     },
     email: {
       type: String,
-      unique: true,
+      // unique: true,
       required: true,
       trim: true,
       lowercase: true,
-      validate(value) {
-        if (!validator.isEmail(value)) {
-          throw new Error("Invalid Email");
-        }
-      },
+      // validate(value) {
+      //   if (!validator.isEmail(value)) {
+      //     throw new Error("Invalid Email");
+      //   }
+      // },
     },
     age: {
       type: Number,
       default: 0,
-      validate(value) {
-        if (value < 0) {
-          throw new Error("Age must be a positive number.");
-        }
-      },
+      // validate(value) {
+      //   if (value < 0) {
+      //     throw new Error("Age must be a positive number.");
+      //   }
+      // },
     },
     password: {
       type: String,
       required: true,
       trim: true,
       minlength: 5,
-      validate(value) {
-        if (value.toLowerCase().includes("password")) {
-          throw new Error('Password cannot contain "password"in it.');
-        }
-      },
-    },
-    token: {
-      type: String,
+      // validate(value) {
+      //   if (value.toLowerCase().includes("password")) {
+      //     throw new Error('Password cannot contain "password"in it.');
+      //   }
+      // },
     },
     avatar: {
       type: String,
-      required: true,
       default:
         "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
     },
@@ -121,15 +117,6 @@ const userSchema = new mongoose.Schema(
       //   }
       // },
     },
-    // behanceLink: {
-    //   type: String,
-    //   trim: true,
-    // validate(value) {
-    //   if (!validator.isURL(value)) {
-    //     throw new Error("Invalid website URL.");
-    //   }
-    // },
-    // },
     exp: [
       {
         title: {
@@ -140,6 +127,9 @@ const userSchema = new mongoose.Schema(
         },
         duration: {
           type: Number,
+        },
+        description: {
+          type: String,
         },
       },
     ],
@@ -162,6 +152,9 @@ const userSchema = new mongoose.Schema(
     ssc: graduationSchema,
     hsc: graduationSchema,
     title: String,
+    token: {
+      type: String,
+    },
   },
   {
     timestamps: true,
@@ -193,11 +186,15 @@ userSchema.methods.toJSON = function () {
 userSchema.statics.findByCredentials = async (email, password) => {
   const user = await User.findOne({ email });
   if (!user) {
-    throw new Error("Invalid email.");
+    // throw new Error("Invalid email.");
+    console.log("Invalid Email of applicant");
+    return null;
   }
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) {
-    throw new Error("Unable to login.");
+    // throw new Error("Unable to login.");
+    console.log("Uanble to login of applicant");
+    return null;
   }
   return user;
 };

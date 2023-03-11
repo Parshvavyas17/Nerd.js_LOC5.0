@@ -1,29 +1,32 @@
 import { useState, createContext, useEffect } from "react";
 import axios from "axios";
 
-export const AppContext = createContext({ token: "", auth: false, user: {} });
+export const AppContext = createContext({ token: "", type: "", user: {} });
 
 export const AppProvider = ({ children }) => {
-  const [token, setToken] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [token, setToken] = useState("");
   const [user, setUser] = useState(null);
+  const [type, setType] = useState("");
+  const [selectedChat, setSelectedChat] = useState();
+  const [notification, setNotification] = useState([]);
+  const [chats, setChats] = useState();
 
   const fetchUser = async () => {
     if (localStorage.getItem("token")) {
       try {
-        const response = await axios.get(
-          `http://localhost:5000/api/user/self`,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        );
+        const response = await axios.get(`http://localhost:5000/api`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
         const res = response.data;
-        if (res?.user && res?.token) {
+        console.log(res);
+        if (res?.token) {
           if (res.token !== token) {
             setToken(res.token);
             setUser(res.user);
+            setType(res.type);
             setIsLoading(false);
           }
         } else {
@@ -68,7 +71,21 @@ export const AppProvider = ({ children }) => {
   } else {
     return (
       <AppContext.Provider
-        value={{ token, loggedIn, loggedOut, user, setUser }}
+        value={{
+          token,
+          loggedIn,
+          loggedOut,
+          user,
+          setUser,
+          type,
+          setType,
+          notification,
+          setNotification,
+          selectedChat,
+          setSelectedChat,
+          chats,
+          setChats,
+        }}
       >
         {children}
       </AppContext.Provider>

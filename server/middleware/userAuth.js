@@ -14,6 +14,7 @@ const userAuth = async (req, res, next) => {
     }
     req.token = token;
     req.user = user;
+    req.type = "Applicant";
     next();
   } catch (error) {
     res.status(401).send({ error: "Please authenticate." });
