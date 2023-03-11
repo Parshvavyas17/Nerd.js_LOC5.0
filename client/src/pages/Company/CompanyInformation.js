@@ -80,7 +80,7 @@ const CompanyInformation = () => {
       };
       console.log(localStorage.getItem('token'));
       console.log(data);
-      const response = await axios.patch(`${url}/company/self`,
+      const response = await axios.patch(`${url}/api/user/companyinformation`,
         data , {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`

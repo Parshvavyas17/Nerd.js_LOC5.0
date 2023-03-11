@@ -1,12 +1,14 @@
 import StudInfoSidebar from "../../components/StudInfoSidebar";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../../context/appContext";
 
 
 const EducationInfo = () => {
     const navigate = useNavigate();
     const url = 'http://localhost:5000';
+    // const {token} = useContext(AppContext);
 
     const [gradStatus, setGradStatus] = useState({});
     const [score, setScore] = useState({});
@@ -80,15 +82,15 @@ const EducationInfo = () => {
                 degree: degree,
                 stream: stream,
             };
-            const response = await axios.patch(`${url}/students/self`, data, {
+            const response = await axios.patch(`${url}/api/user/self`, data, {
                 headers: {
-                    "Authorization": `Bearer ${localStorage.getItem("token")}`,
+                    "Authorization": `Bearer ${localStorage.getItem('token')}`,
                     "Content-type": "application/json",
                 },
             });
             console.log(data);
             console.log(response.data);
-            console.log(localStorage.getItem('userType'));
+            // console.log(localStorage.getItem('userType'));
             // alert("Details Added");
             navigate('/skills');
               

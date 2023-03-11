@@ -9,7 +9,7 @@ const SignupCompany = () => {
   const [ password, setPassword ] = useState("");
   const [ name, setName ] = useState("");
   const [ contactNo, setContactNo ] = useState("");
-  const [ type, setTypeChange ] = useState("");
+  const [ type1, setTypeChange ] = useState("");
 
   const url = 'http://localhost:5000';
 
@@ -43,14 +43,14 @@ const SignupCompany = () => {
         password: password,
         contactNo: contactNo,
         name: name,
-        type:type
+        type:type1
 
       };
       console.log(data);
       const response = await axios.post(`${url}/api/user/signup`, data);
       console.log(response.data);
-      console.log("trtfcfd")
-      localStorage.setItem("token", response.data.companyToken);
+      console.log("trtfcfd");
+      localStorage.setItem("token", response.data.token);
       localStorage.setItem("userType", "company");
       setEmail("");
       setPassword("");

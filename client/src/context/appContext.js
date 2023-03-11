@@ -5,8 +5,8 @@ export const AppContext = createContext({ token: "", type: "", user: {} });
 
 export const AppProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [token, setToken] = useState("");
-  const [user, setUser] = useState(null);
+  // const [token, setToken] = useState("");
+  // const [user, setUser] = useState(null);
   const [type, setType] = useState("");
   const [selectedChat, setSelectedChat] = useState();
   const [notification, setNotification] = useState([]);
@@ -23,47 +23,45 @@ export const AppProvider = ({ children }) => {
         const res = response.data;
         console.log(res);
         if (res?.token) {
-          if (res.token !== token) {
             localStorage.setItem("token", res.token);
-            setToken(res.token);
-            setUser(res.user);
-            setType(res.type);
+            // setToken(res.token);
+            // setUser(res.user);
+            // setType(res.type);
             setIsLoading(false);
-          }
         } else {
-          setToken("");
-          localStorage.setItem("token", "");
-          setUser({});
+          // setToken("");
+          // localStorage.setItem("token", "");
+          // setUser({});
           console.log("User fetching failed!");
           setIsLoading(false);
         }
       } catch (error) {
-        setToken("");
-        localStorage.setItem("token", "");
-        setUser({});
+        // setToken("");
+        // localStorage.setItem("token", "");
+        // setUser({});
         console.log("User fetching failed!");
         setIsLoading(false);
       }
     } else {
-      setToken("");
-      setUser({});
+      // setToken("");
+      // setUser({});
       setIsLoading(false);
     }
   };
 
   useEffect(() => {
     fetchUser();
-  }, [token]);
+  }, []);
 
   const loggedIn = (auth_token, user) => {
-    setToken(auth_token);
-    setUser(user);
+    // setToken(auth_token);
+    // setUser(user);
     setIsLoading(false);
   };
 
   const loggedOut = () => {
-    setToken("");
-    setUser({});
+    // setToken("");
+    // setUser({});
     setIsLoading(false);
   };
 
@@ -73,12 +71,8 @@ export const AppProvider = ({ children }) => {
     return (
       <AppContext.Provider
         value={{
-          token,
-          setToken,
           loggedIn,
           loggedOut,
-          user,
-          setUser,
           type,
           setType,
           notification,

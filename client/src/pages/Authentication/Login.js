@@ -2,11 +2,11 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import login from "../../assets/login.gif";
-import {AppContext} from "../../context/appContext"
+// import {AppContext} from "../../context/appContext"
 
 const Login = () => {
   const navigate = useNavigate();
-  const {setType, setUser, setToken} = useContext(AppContext);
+  // const {setType, setUser, setToken} = useContext(AppContext);
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
   const [type1, setType1]= useState("");
@@ -53,12 +53,12 @@ const Login = () => {
       setPassword("");
       setType1("");
       console.log('hchfch')
-      // alert("Successfully Logged in.");
+      alert("Successfully Logged in.");
       if(res.type === 'Applicant')
       {
-        setToken(res.token);
-        setUser(res.user);
-        setType(res.type);
+        // setToken(res.token);
+        // setUser(res.user);
+        // setType(res.type);
         navigate('/dashboard');
       }
       else{
