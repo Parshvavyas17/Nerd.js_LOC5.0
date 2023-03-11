@@ -20,7 +20,7 @@ const SideBarCompany = ({ selected }) => {
     Message: <AiFillMessage size="20" style={{ color: "white" }} />,
   };
   const links = {
-    // Profile: "/companydashboard",
+    Profile: "/companydashboard",
     Dashboard: "/companydashboard",
     "Post Vacancy": "/companypostvacancy",
     Applications: "/applicationcompany",

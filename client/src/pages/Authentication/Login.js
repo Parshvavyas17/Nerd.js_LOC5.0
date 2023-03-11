@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import login from "../../assets/login.gif";
+import {AppContext} from "../../context/appContext"
 
 const Login = () => {
   const navigate = useNavigate();
+  const {setType, setUser, setToken} = useContext(AppContext);
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
+  const [type1, setType1]= useState("");
 
   const url = 'http://localhost:5000';
 
@@ -18,27 +21,44 @@ const Login = () => {
     setPassword(e.target.value);
   }
 
+  const handleTypeChange =(e) => {
+    setType1(e.target.value);
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${url}/login`, { email, password });
-      if(response.data.studentUser) {
-        localStorage.setItem("token", response.data.studentToken);
-        localStorage.setItem("userType", "student");
-      } else if(response.data.companyUser) {
-        localStorage.setItem("token", response.data.companyToken);
-        localStorage.setItem("userType", "company");
+      const response = await axios.post(`${url}/api/user/login`, { email, password, type: type1 });
+      const res = response.data;
+      console.log(res);
+      if(response.data.user) {
+        console.log('ydyrxyfxh')
+        localStorage.setItem("token", `${response.data.token}`);
+        // setToken(response.data.token);
+        // setUser(response.data.user);
+        // setType(response.data.type);
+        console.log("tfvy")
+        // localStorage.setItem("userType", "student");
       } else {
-        localStorage.setItem("token", null);
-        localStorage.setItem("userType", null);
+        // localStorage.setItem("token", "");
+        // setToken("");
+        // setUser({});
+        // setType("");
+        // localStorage.setItem("userType", null);
+        alert("Login Failed")
       }
-      console.log(localStorage.getItem("userType"));
-      console.log(localStorage.getItem("token"));
+      // console.log(localStorage.getItem("userType"));
+      // console.log(localStorage.getItem("token"));
       setEmail("");
       setPassword("");
+      setType1("");
+      console.log('hchfch')
       // alert("Successfully Logged in.");
-      if(response.data.studentUser)
+      if(res.type === 'Applicant')
       {
+        setToken(res.token);
+        setUser(res.user);
+        setType(res.type);
         navigate('/dashboard');
       }
       else{
@@ -48,6 +68,8 @@ const Login = () => {
     } catch(error) {
       setEmail("");
       setPassword("");
+      setType1("");
+      console.log(error)
       alert('Error occured while logging in');
     }
   }
@@ -76,11 +98,25 @@ const Login = () => {
             />
           </div>
           <div className="flex flex-col justify-start">
+            <label className="text-left ml-10 font-semibold text-[#201835]" htmlFor="type">
+              Role
+            </label>
+            <input
+              className="w-5/6 self-center rounded-lg p-1 text-black bg-white border-purple border-2"
+              type="text"
+              placeholder="Example:Recruiter/Applicant"
+              id="type"
+              name="type"
+              value={type1}
+              onChange={handleTypeChange}
+            />
+          </div>
+          <div className="flex flex-col justify-start">
             <label className="text-left  ml-10  font-semibold text-[#201835]" htmlFor="password">Password</label>
             <input
               className="w-5/6 self-center rounded-lg p-1 text-black bg-white border-purple border-2"
               type="password"
-              placeholder="********"
+              placeholder="Enter your password"
               name="password"
               id="password"
               value={password}

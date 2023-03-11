@@ -24,6 +24,7 @@ export const AppProvider = ({ children }) => {
         console.log(res);
         if (res?.token) {
           if (res.token !== token) {
+            localStorage.setItem("token", res.token);
             setToken(res.token);
             setUser(res.user);
             setType(res.type);
@@ -73,6 +74,7 @@ export const AppProvider = ({ children }) => {
       <AppContext.Provider
         value={{
           token,
+          setToken,
           loggedIn,
           loggedOut,
           user,

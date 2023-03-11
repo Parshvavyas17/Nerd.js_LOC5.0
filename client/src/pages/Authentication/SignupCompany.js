@@ -32,6 +32,7 @@ const SignupCompany = () => {
   const handleCompanyChange = (e) => {
     setTypeOfCompany(e.target.value);
   }
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -70,6 +71,18 @@ const SignupCompany = () => {
         <h1 className="text-secondary text-4xl font-semibold inline">Right</h1>
         <h1 className="text-4xl font-semibold inline"> People!</h1>
         <form className="bg-[#FEF9F9] w-2/3 h-[500px] mx-auto flex flex-col justify-evenly mt-10 px-10 rounded-2xl">
+        <div className="w-1/2 ml-2">
+                <label className="text-left text-black">Company Type</label>
+                <select
+                  className="w-[100%] rounded-lg p-1 text-black bg-white border-purple border-4"
+                  name="typeOfCompany" onChange={handleTypeChange}
+                >
+                  <option>Select</option>
+                  <option value="Recruiter">Recruiter</option>
+                  <option value="Applicant">Applicant</option>
+                  
+                </select>
+              </div>
           <div>
             <label className="text-left text-black">Official Email ID</label>
             <input
@@ -86,7 +99,7 @@ const SignupCompany = () => {
             <input
               className="w-full self-center rounded-lg p-1 text-black bg-white border-purple border-4"
               type="password"
-              placeholder="********"
+              placeholder="Enter some password.."
               name="password"
               onChange={handlePasswordChange}
               value={password}
