@@ -4,6 +4,8 @@ const express = require("express");
 const cors = require("cors");
 const userRouter = require("./routers/user.route");
 const chatRouter = require("./routers/chat.route");
+const jobRouter = require("./routers/job.route");
+const applicationRouter = require("./routers/application.route");
 const messageRouter = require("./routers/message.route");
 const getDocByToken = require("./middleware/getDoc");
 
@@ -13,6 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/user", userRouter);
 app.use("/api/chat", chatRouter);
+app.use("/api/job", jobRouter);
+app.use("/api/application", applicationRouter);
 app.use("/api/message", messageRouter);
 
 app.get("/api", getDocByToken, (req, res) => {
