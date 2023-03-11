@@ -110,7 +110,7 @@ const CompanyDashboard = () => {
                   src={CompanyLogo}
                   alt="Company Logo"
                 />
-                <h5 className="pt-10 text-center font-[Raleway] text-[18px]">
+                <h5 className="pt-10 text-center font-ourfont text-[18px]">
                 {company ? company.name : 'Company Name not found!.'}
                 </h5>
 
@@ -144,29 +144,29 @@ const CompanyDashboard = () => {
               </div>
               {/* Job Description */}
               <div className="bg-white rounded-[34px] p-8 w-full">
-                <h1 className="flex font-[Raleway] text-[20px] ">
+                <h1 className="flex font-ourfont text-[20px] ">
                   Company Information
                 </h1>
                 <div>
                   <div className="flex mt-[5%] whitespace-nowrap ">
                     <div className="justify-items-start mr-60">
-                      <h1 className=" font-[Raleway] text-[15px]">
+                      <h1 className=" font-ourfont text-[15px]">
                         Phone Number
                       </h1>
                       <p>{company ? company.contactNo : 'Contact Details not found!'}</p>
                     </div>
                     <div className="justify-items-start">
-                      <h1 className=" font-[Raleway] text-[15px]">Type</h1>
+                      <h1 className=" font-ourfont text-[15px]">Type</h1>
                       <p>{company ? company.typeOfCompany : 'Type of company not found!'}</p>
                     </div>
                   </div>
                   <div className="flex mt-[5%] whitespace-nowrap ">
                     <div className="justify-items-start mr-60">
-                      <h1 className=" font-[Raleway] text-[15px]">Email ID</h1>
+                      <h1 className=" font-ourfont text-[15px]">Email ID</h1>
                       <p>{company ? company.email: ''}</p>
                     </div>
                     <div className="justify-items-start">
-                      <h1 className=" font-[Raleway] text-[15px]">Website</h1>
+                      <h1 className=" font-ourfont text-[15px]">Website</h1>
                       <a href="www.abc.com" target={"_blank"}>
                       {company ? company.website : 'Company Website not found!'}
                       </a>
@@ -174,7 +174,7 @@ const CompanyDashboard = () => {
                   </div>
                   <div className="flex justify-between mt-[5%]">
                     <div>
-                      <h1 className=" font-[Raleway] text-[15px]">
+                      <h1 className=" font-ourfont text-[15px]">
                         Description
                       </h1>
                       <p>
