@@ -7,30 +7,16 @@ const Navbar = () => {
     return (
         <div>
             {/* left */}
-            <div className="justify-between bg-white shadow-xl">
-                <div className="image w-1/2">
-                    <img src={logo} alt="logo" className="h-16 ml-10 px-10 mt-4 cursor-pointer"></img>
+            <div className=" flex justify-between bg-white shadow-lg hover:shadow-xl">
+                <div className="image w-48 h-16 mx-10 my-2 ">
+                    <img src={logo} alt="logo" className="   cursor-pointer "></img>
                 </div>
-                {/* Middle */}
-                {/* <div className="search bg-white w-3/5 h-12 rounded-full py-2 mt-6 shadow-lg border px-2 ">
-                    <div className="flex items-center justify-around ">
-                    <input type="text" className=" flex-grow h-8 focus:outline-none text-black placeholder-gray-400 ml-2 font-semibold " placeholder="Start your Search"/>
-                    <AiOutlineSearch className="bg-[#FF385C] text-white rounded-full cursor-pointer " size="30"/>
-                    </div>
-                </div> */}
-                {/* right */}
-                {/* <div className=" flex justify-end w-56 h-10 mt-10 grid grid-cols-4">
-                    <p className="font-bold font-serif text-black">Contact</p>
-                    <p className="font-bold font serif text-black">Login</p>
-                    <p className="font-bold text-black">About </p>
-                    <p className="font-bold text-black">Register </p>   
 
-                </div> */}
-                <div className='w-1/2 justify-end text-bold font-serif text-lg my-3'>
-                    <button className='w-1/4 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold hover:text-white py-2 px-4 border border-[#40189D] hover:border-transparent rounded'>Contact</button>
-                    <button className='w-1/4 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold hover:text-white py-2 px-4 border border-[#40189D] hover:border-transparent rounded'>About Us</button>
-                    <button className='w-1/4 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold hover:text-white py-2 px-4 border border-[#40189D] hover:border-transparent rounded'>SignIn</button>
-                    <button className='w-1/4 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold hover:text-white py-2 px-4 border border-[#40189D] hover:border-transparent rounded'>SignUp</button>
+                <div className='w-1/2 justify-end text-bold font-serif text-lg grid grid-cols-4 my-4'>
+                    <button className='w-32 h-16 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold text-xl hover:text-white  border border-[#40189D] hover:border-transparent rounded-xl'>Contact</button>
+                    <button className='w-32 h-16 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold text-xl hover:text-white   border border-[#40189D] hover:border-transparent rounded-xl'>About Us</button>
+                    <button className='w-32 h-16 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold text-xl hover:text-white   border border-[#40189D] hover:border-transparent rounded-xl'>SignIn</button>
+                    <button className='w-32 h-16 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold text-xl hover:text-white  border border-[#40189D] hover:border-transparent rounded-xl'>SignUp</button>
                 </div>
 
 
