@@ -34,4 +34,39 @@ const logout = async (req, res) => {
   }
 };
 
-module.exports = { login, signup, logout };
+const getSelf = async (req, res) => {
+  try {
+    res.status(200).send(req.user);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+};
+
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).send(users);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+};
+
+const updateSelf = async (req, res) => {
+  const updates = Object.keys(req.body);
+  const validOperations = ["name", "email", "age", "password"];
+  const isUpdateValid = updates.every((update) =>
+    validOperations.includes(update)
+  );
+  if (!isUpdateValid) {
+    return res.status(400).send();
+  }
+  try {
+    updates.forEach((update) => (req.user[update] = req.body[update]));
+    await req.user.save();
+    res.status(200).send(req.user);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+module.exports = { login, signup, logout, getSelf, getAllUsers, updateSelf };
