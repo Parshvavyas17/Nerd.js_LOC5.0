@@ -97,7 +97,7 @@ export default function JobDetails(props) {
                   src={CompanyLogo}
                   alt="Company Logo"
                 />
-                <h5 className="pt-20 text-center font-[Raleway] text-[18px]">
+                <h5 className="pt-20 text-center font-ourfont text-[18px]">
                   {(company && company[0]) ? company[0].name : "Name"}
                 </h5>
                 <p className="text-[#808080] text-center text-[12px] font-medium">
@@ -126,7 +126,7 @@ export default function JobDetails(props) {
               </div>
               {/* Job Description */}
               <div className="bg-white w-9/12 rounded-[34px] p-8">
-                <div className="flex justify-between font-[Raleway] text-[25px] ">
+                <div className="flex justify-between font-ourfont text-[25px] ">
                   <h1>{jobs ? jobs[0].title : "Title"} - {jobs ? jobs[0].type : "Job"}</h1>
                   <div className="flex">
                     <button onClick={handleApply} className="bg-[#40189D] hover:bg-[#6440b7] text-white font-bold py-2 px-4 rounded-full h-0% text-center text-[15px]">
@@ -194,7 +194,7 @@ export default function JobDetails(props) {
                     </div>
                   </div>
                 </div>
-                <h1 className="flex justify-between font-[Raleway] text-[20px] ">
+                <h1 className="flex justify-between font-ourfont text-[20px] ">
                   Overview
                 </h1>
                 <p>
@@ -202,7 +202,7 @@ export default function JobDetails(props) {
                 </p>
 
                 <div className="pt-8">
-                  <h1 className="font-[Raleway] text-[20px] pt-4">Perks</h1>
+                  <h1 className="font-ourfont text-[20px] pt-4">Perks</h1>
                   <div className="grid grid-cols-2 gap-5 pt-4">
                     {jobs &&
                       String(jobs[0].skills).split(" ").map((data) => {
@@ -213,7 +213,7 @@ export default function JobDetails(props) {
                                 className="fa-solid fa-check pr-6"
                                 style={{ color: "#02eb0a" }}
                               ></i>
-                              <p className="font-[Raleway] text-[15px]">
+                              <p className="font-ourfont text-[15px]">
                                 {data}
                               </p>
                             </div>

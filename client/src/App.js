@@ -36,10 +36,10 @@ function App() {
           <Route path="/skills" element={<Skills/>}/>
           <Route path="/worksamples" element={<WorkSamples/>}/>
           <Route path="/experience" element={<Experience/>}/>
-          <Route path="/ApplicationCompany" element={<ApplicationCompany/>}/>
-          <Route path="/CompanyInformation" element={<CompanyInformation/>}/>
-          <Route path="/CompanyPostVacancy" element={<CompanyPostVacancy/>}/>
-          <Route path="/CompanyDashboard" element={<CompanyDashboard/>}/>
+          <Route path="/applicationcompany" element={<ApplicationCompany/>}/>
+          <Route path="/companyinformation" element={<CompanyInformation/>}/>
+          <Route path="/companypostvacancy" element={<CompanyPostVacancy/>}/>
+          <Route path="/companydashboard" element={<CompanyDashboard/>}/>
 
           
         </Routes>
