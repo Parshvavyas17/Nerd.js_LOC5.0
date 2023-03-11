@@ -1,6 +1,6 @@
 import React from 'react';
 import airbnb from '../Assets/airbnb.svg'
-// import { AiOutlineSearch } from "react-icons/ai";
+ import { AiOutlineSearch } from "react-icons/ai";
 
 const AirbnbNav = () => {
     return (
