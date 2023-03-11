@@ -12,8 +12,8 @@ function App() {
     //   </Routes>
     // </Router>
     <div>
-      {/* <Landing /> */}
-      <Navbar />
+      <Landing />
+      {/* <Navbar /> */}
     </div>
   );
 }
