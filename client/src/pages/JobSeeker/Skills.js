@@ -91,7 +91,7 @@ const Skills=() =>{
       <div className="bg-[#F2F2F2] w-full h-screen px-10 pt-4 ml-10 rounded-l-3xl flex justify-center items-center">
             <div className="flex flex-col w-1/2 h1/2">
                 <div className="text-center text-4xl font-bold pb-4">Skills</div>
-                <div className="container rounded-2xl bg-purple bg-lightPurple min-w-full min-h-full p-16 shadow-main-sd">
+                <div className="container rounded-2xl bg-lightPurple min-w-full min-h-full p-16 shadow-main-sd">
                     <form >
                         <div className="flex flex-col min-w-full min-h-full mb-7">
                             <div>Soft Skills</div>

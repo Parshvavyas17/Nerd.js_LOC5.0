@@ -94,7 +94,7 @@ const WorkSamples=() =>{
       <div className="bg-[#F2F2F2] w-full h-screen px-10 pt-4 ml-10 rounded-l-3xl flex justify-center items-center">
             <div className="flex flex-col w-1/2 h1/2">
                 <div className="text-center text-4xl font-bold pb-4">Work Samples</div>
-                <div className="container rounded-2xl bg-purple bg-lightPurple min-w-full min-h-full p-12 shadow-main-sd">
+                <div className="container rounded-2xl bg-lightPurple min-w-full min-h-full p-12 shadow-main-sd">
                     <form >
                         <div className="flex flex-col min-w-full min-h-full mb-4">
                             <label className="mb-5 font-bold text-xl">Add your work sample links here if any:</label>
