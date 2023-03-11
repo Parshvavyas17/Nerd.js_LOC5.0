@@ -1,9 +1,15 @@
 import React from 'react';
 // import airbnb from '../Assets/airbnb.svg'
 import { AiOutlineSearch } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 import logo from '../assets/Logo.png'
 
+
 const Navbar = () => {
+    let navigate = useNavigate();
+   
+
+    
     return (
         <div>
             {/* left */}
@@ -13,10 +19,12 @@ const Navbar = () => {
                 </div>
 
                 <div className='w-1/2 justify-end text-bold font-serif text-lg grid grid-cols-4 my-4'>
-                    <button className='w-32 h-10 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold text-xl hover:text-white  border border-[#40189D] hover:border-transparent rounded-xl'>Contact</button>
+                    <a href="#Ab">
                     <button className='w-32 h-10 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold text-xl hover:text-white   border border-[#40189D] hover:border-transparent rounded-xl'>About Us</button>
-                    <button className='w-32 h-10 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold text-xl hover:text-white   border border-[#40189D] hover:border-transparent rounded-xl'>SignUp</button>
-                    <button className='w-32 h-10 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold text-xl hover:text-white  border border-[#40189D] hover:border-transparent rounded-xl'>SignIn</button>
+                    </a>   
+                    <button className='w-32 h-10 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold text-xl hover:text-white  border border-[#40189D] hover:border-transparent rounded-xl'>Contact</button>
+
+                    <button onClick={() => { navigate("/login"); }} className=' w-32 h-10 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold text-xl hover:text-white  border border-[#40189D] hover:border-transparent rounded-xl'>SignIn</button>
                 </div>
 
 
