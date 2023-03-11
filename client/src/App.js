@@ -1,6 +1,7 @@
 import "./App.css";
 import Landing from "./pages/Landing";
-import Navbar from "./components/Navbar";
+import Login from "./pages/Authentication/Login"
+import SignupCompany from "./pages/Authentication/SignupCompany";
 import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "./context/appContext";
@@ -9,19 +10,12 @@ function App() {
   const { token } = useContext(AppContext);
   return (
     <>
-      {token ? (
-        <Routes>
+         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/navbar" element={<Navbar />} />
-          TOKEN FOUND
+          <Route path="/signup" element={< SignupCompany/>} />
+          <Route path="/login" element={<Login/>}/>
+          
         </Routes>
-      ) : (
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/navbar" element={<Navbar />} />
-          TOKEN NOT FOUND
-        </Routes>
-      )}
     </>
     // <Router>
     //   <Routes>

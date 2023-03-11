@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import login from "../../assets/login.gif"
 
 const Login = () => {
   const navigate = useNavigate();
@@ -107,7 +108,7 @@ const Login = () => {
       <div className="">
         <img
           className="rounded-full w-10/12"
-          src="images/login.gif"
+          src={login}
           alt="signup"
         />
       </div>
