@@ -19,6 +19,9 @@ const Banner = () => {
                 </div>
                 <div className="flex items-center justify-evenly h-0 w-full">
                     <img src={bg} className="w-4/5 h-48 rounded-2xl" />
+                    <h1 className="absolute text-4xl text-white  top-[670px]  left-1/4  ml-[300px] -translate-x-1/2 -translate-y-1/2 font-extrabold">Our Services</h1>
+                    <p className='absolute text-3xl text-white top-[750px] ml-[225px] left-1/4  -translate-x-1/2 -translate-y-1/2 font-normal"'>We provide both our Job Seekers and Job Recruiters an opportunity to Flourish</p>
+
                     
                 </div>
             </div>
