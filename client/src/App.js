@@ -14,6 +14,7 @@ import Experience from "./pages/JobSeeker/Experience";
 import ApplicationCompany from "./pages/Company/ApplicationCompany";
 import CompanyInformation from "./pages/Company/CompanyInformation";
 import CompanyPostVacancy from "./pages/Company/CompanyPostVacancy";
+import CompanyDashboard from "./pages/Company/CompanyDashboard";
 import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "./context/appContext";
@@ -37,7 +38,8 @@ function App() {
           <Route path="/experience" element={<Experience/>}/>
           <Route path="/ApplicationCompany" element={<ApplicationCompany/>}/>
           <Route path="/CompanyInformation" element={<CompanyInformation/>}/>
-          <Route path="/CompanyPostVacany" element={<CompanyPostVacancy/>}/>
+          <Route path="/CompanyPostVacancy" element={<CompanyPostVacancy/>}/>
+          <Route path="/CompanyDashboard" element={<CompanyDashboard/>}/>
 
           
         </Routes>
