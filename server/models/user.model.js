@@ -3,12 +3,62 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const graduationSchema = new mongoose.Schema({
+  score: {
+    type: Number,
+  },
+  college: {
+    type: String,
+  },
+  startYear: {
+    type: Number,
+  },
+  endYear: {
+    type: Number,
+  },
+  gradStatus: {
+    type: String,
+    enum: ["Pursuing", "Completed"],
+  },
+});
+
+const linkSchema = new mongoose.Schema({
+  link: {
+    type: String,
+    trim: true,
+    validate(value) {
+      if (!validator.isURL(value)) {
+        throw new Error("Invalid website URL.");
+      }
+    },
+  },
+});
+
 const userSchema = new mongoose.Schema(
   {
-    name: {
+    firstName: {
       type: String,
-      required: true,
       trim: true,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      trim: true,
+      required: true,
+    },
+    gender: {
+      type: String,
+      enum: ["M", "F"],
+      trim: true,
+    },
+    mobileNo: {
+      type: Number,
+      required: true,
+      validate(value) {
+        if (!validator.isMobilePhone(`${value}`)) {
+          throw new Error("Invalid phone number.");
+        }
+      },
     },
     email: {
       type: String,
@@ -56,11 +106,50 @@ const userSchema = new mongoose.Schema(
       required: true,
       default: false,
     },
+    githubLink: linkSchema,
+    blogLink: linkSchema,
+    linkedInLink: linkSchema,
+    behanceLink: linkSchema,
+    exp: {
+      title: {
+        type: String,
+      },
+      workspace: {
+        type: String,
+      },
+      duration: {
+        type: Number,
+      },
+    },
+    skillsStudent: [
+      {
+        name: {
+          type: String,
+        },
+        level: {
+          type: Number,
+        },
+      },
+    ],
+    skills: String,
+    currentCity: {
+      type: String,
+      trim: true,
+    },
+    graduation: graduationSchema,
+    ssc: graduationSchema,
+    hsc: graduationSchema,
   },
   {
     timestamps: true,
   }
 );
+
+studentSchema.virtual("applications", {
+  ref: "Application",
+  localField: "_id",
+  foreignField: "applicant",
+});
 
 userSchema.methods.generateAuthToken = async function () {
   const user = this;
@@ -101,3 +190,26 @@ userSchema.pre("save", async function (next) {
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
+
+/*
+
+
+
+
+
+const studentSchema = new mongoose.Schema({
+    title: String,
+    
+    degree: {
+        type: String,
+        trim: true
+    },
+    stream: {
+        type: String,
+        trim: true
+    }
+});
+
+
+
+*/

@@ -4,6 +4,7 @@ const {
   signup,
   getSelf,
   getAllUsers,
+  updateSelf,
 } = require("../controllers/user.controller");
 const authUser = require("../middleware/userAuth");
 
@@ -16,5 +17,7 @@ router.post("/signup", signup);
 router.get("/self", authUser, getSelf);
 
 router.get("/all", getAllUsers);
+
+router.patch("/self", authUser, updateSelf);
 
 module.exports = router;

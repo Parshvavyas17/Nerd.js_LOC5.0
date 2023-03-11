@@ -51,7 +51,7 @@ const getAllUsers = async (req, res) => {
   }
 };
 
-router.patch("/users/me", auth, async (req, res) => {
+const updateSelf = async (req, res) => {
   const updates = Object.keys(req.body);
   const validOperations = ["name", "email", "age", "password"];
   const isUpdateValid = updates.every((update) =>
@@ -67,6 +67,6 @@ router.patch("/users/me", auth, async (req, res) => {
   } catch (error) {
     res.status(500).send(error);
   }
-});
+};
 
-module.exports = { login, signup, logout, getSelf, getAllUsers };
+module.exports = { login, signup, logout, getSelf, getAllUsers, updateSelf };
