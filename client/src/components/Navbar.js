@@ -2,7 +2,7 @@ import React from 'react';
 import airbnb from '../Assets/airbnb.svg'
  import { AiOutlineSearch } from "react-icons/ai";
 
-const AirbnbNav = () => {
+const Navbar = () => {
     return (
         <div>
             {/* left */}
@@ -29,4 +29,4 @@ const AirbnbNav = () => {
     )
 }
 
-export default AirbnbNav;
+export default Navbar;
