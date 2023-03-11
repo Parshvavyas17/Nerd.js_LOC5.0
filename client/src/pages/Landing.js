@@ -8,7 +8,7 @@ function Landing() {
         <div className="">
         <Navbar />  
         </div>
-        <div className="mx-56 my-10">
+        <div className="mx-32 my-10">
         <Banner/>
         </div>
     </div>
