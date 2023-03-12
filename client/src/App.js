@@ -16,6 +16,7 @@ import CompanyInformation from "./pages/Company/CompanyInformation";
 import CompanyPostVacancy from "./pages/Company/CompanyPostVacancy";
 import CompanyDashboard from "./pages/Company/CompanyDashboard";
 import Calendar from "./pages/JobSeeker/Calendar";
+import Contact from "../src/components/Contact";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Route path="/companypostvacancy" element={<CompanyPostVacancy />} />
         <Route path="/companydashboard" element={<CompanyDashboard />} />
         <Route path="/calendar" element={<Calendar />} />
+        <Route path="/Contact" element={<Contact/>}/>
       </Routes>
     </>
   );
