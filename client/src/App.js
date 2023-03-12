@@ -17,8 +17,6 @@ import CompanyPostVacancy from "./pages/Company/CompanyPostVacancy";
 import CompanyDashboard from "./pages/Company/CompanyDashboard";
 import Calendar from "./pages/JobSeeker/Calendar";
 import { Routes, Route } from "react-router-dom";
-import { useContext } from "react";
-import { AppContext } from "./context/appContext";
 
 function App() {
   return (
@@ -43,16 +41,6 @@ function App() {
         <Route path="/calendar" element={<Calendar />} />
       </Routes>
     </>
-    // <Router>
-    //   <Routes>
-    //     <Route path="/" element={<Landing />} />
-    //     <Route path="/navbar" element={<Navbar />} />
-    //   </Routes>
-    // </Router>
-    // <div>
-    //   <Landing />
-    //   <Navbar />
-    // </div>
   );
 }
 
