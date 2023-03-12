@@ -2,7 +2,6 @@ import React from "react";
 import {
   AiFillHome,
   AiOutlineSearch,
-  AiFillMessage,
   AiFillProfile,
 } from "react-icons/ai";
 import { IoExtensionPuzzleSharp } from "react-icons/io5";
@@ -18,6 +17,7 @@ const Sidebar = ({ selected }) => {
     ),
     Calendar: <BsFillCalendarWeekFill size="20" style={{ color: "white" }} />,
     Profile: <AiFillProfile size="20" style={{ color: "white" }} />,
+    
   };
   const links = {
     Dashboard: "/dashboard",
@@ -25,7 +25,8 @@ const Sidebar = ({ selected }) => {
     Applications: "/applicationstud",
     Calendar: "/calendar",
     Profile: "/edit",
-    Meetings:"/meetings",
+    
+ 
   };
   return (
     <div className="h-screen w-1/5">

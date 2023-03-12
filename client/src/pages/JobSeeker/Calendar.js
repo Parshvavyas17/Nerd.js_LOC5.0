@@ -36,6 +36,7 @@ const Calendar = () => {
             selected.event.remove();
         }
     };
+    const openInNewTab = (url) => { window.open(url, "_blank", "noreferrer"); }
 
 
        
@@ -90,7 +91,14 @@ const Calendar = () => {
                         </div>
                     </div>
                     <div className="">
-                        <button onClick={() => { navigate("/dashboard"); }} className=" h-16 w-48 items-center mt-[650px]  bg-white border-2  border-purple hover:bg-purple text-xl font-semibold hover:text-white rounded-xl"> Back</button>
+                        <div>
+                        <button onClick={() => { navigate("/dashboard"); }} className=" h-16 w-48 items-center mt-[625px]  bg-white border-2  border-purple hover:bg-purple text-xl font-semibold hover:text-white rounded-xl"> Back</button>
+                        </div>
+                        <div>
+
+                        <button  role="link" onClick={() => openInNewTab('https://meet.jit.si/') }
+                        className=" h-16 w-48 items-center  my-4 bg-white border-2  border-purple hover:bg-purple text-xl font-semibold hover:text-white rounded-xl">Start a Meeting</button>
+                        </div>
                     </div>
                     <div className="mt-[793px]"></div>
                 </div>
