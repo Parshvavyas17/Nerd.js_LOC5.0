@@ -37,7 +37,7 @@ const ApplicationStud = () => {
   }, []);
 
   return (
-    <div className="bg-[#40189D] w-full min-h-screen h-full flex font-main">
+    <div className="bg-[#40189D] w-full min-h-screen h-full flex font-main font-ourfont">
       <Sidebar selected="Applications" />
       <div className="bg-[#F2F2F2] w-full px-10 pt-4 ml-10 rounded-l-3xl">
         <Header heading="Applications" user="Oda Dink" />

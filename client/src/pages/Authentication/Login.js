@@ -74,7 +74,7 @@ const Login = () => {
     }
   }
   return (
-    <div className="bg-purple w-full h-screen flex text-white justify-evenly items-center font-main">
+    <div className="bg-purple w-full h-screen flex text-white justify-evenly items-center font-main font-ourfont">
       <form className="w-1/2 h-11/12 text-center">
         <h1 className="text-4xl font-semibold inline">Find the job of </h1>
         <br />

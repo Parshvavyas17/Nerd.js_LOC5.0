@@ -113,7 +113,7 @@ const Dashboard = (props) => {
   };
 
   return (
-    <div className="bg-purple w-screen min-h-screen h-full flex font-main">
+    <div className="bg-purple w-screen min-h-screen h-full flex font-main font-ourfont">
       <Sidebar selected="Dashboard" />
       <div className="bg-[#F2F2F2] flex flex-col justify-evenly w-full pt-2 px-10 pb-5 ml-10 rounded-l-3xl">
         <Header heading="Dashboard" user="Oda Dink" />

@@ -11,7 +11,7 @@ export default function Contact() {
     return (
         <div>
             <Navbar/>
-            <section className="text-gray-700 body-font relative bg-purple">
+            <section className="text-gray-700 body-font font-ourfont relative bg-purple">
                 <div className="container px-5 py-24 mx-auto">
                     <div className="flex flex-col text-center w-full mb-12">
                         <h1 className=" text-7xl font-bold text-white title-font mb-4 text-gray-900">

@@ -43,7 +43,7 @@ export default function Edit(props) {
   return (
     <>
       {/* Sidebar */}
-      <div className="bg-[#40189D] w-full min-h-screen flex font-main">
+      <div className="bg-[#40189D] w-full min-h-screen flex font-main font-ourfont">
         <Sidebar selected="Profile" />
         {/* Sidebar */}
         <div className="bg-[#F2F2F2] w-full rounded-l-3xl">

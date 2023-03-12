@@ -13,18 +13,22 @@ const Navbar = () => {
     return (
         <div>
             {/* left */}
-            <div className=" flex justify-between bg-white shadow-lg hover:shadow-xl h-15">
+            <div className=" flex justify-between bg-black shadow-lg hover:shadow-xl h-15">
                 <div className="image w-48 h-16 mx-10 my-2 ">
-                    <img src={logo} alt="logo" className=" w-3/4  cursor-pointer h-12  py-[-10px] mt-2"></img>
+                    <img src={logo} alt="logo" className=" w-3/4  cursor-pointer h-12  py-[-10px] mt-2 border border-2 border-white"></img>
                 </div>
 
-                <div className='w-1/2 justify-end text-bold font-serif text-lg grid grid-cols-4 my-4'>
-                    <a href="#Ab">
-                    <button className='w-32 h-10 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold text-xl hover:text-white   border border-[#40189D] hover:border-transparent rounded-xl'>About Us</button>
-                    </a>   
-                    <button className='w-32 h-10 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold text-xl hover:text-white  border border-[#40189D] hover:border-transparent rounded-xl'>Contact</button>
-
-                    <button onClick={() => { navigate("/login"); }} className=' w-32 h-10 bg-transparent hover:bg-[#40189D] text-[#40189D] font-semibold text-xl hover:text-white  border border-[#40189D] hover:border-transparent rounded-xl'>SignIn</button>
+                <div className='w-1/2 justify-end text-bold font-ourfont text-lg grid grid-cols-4 my-4 '>
+                    <div>
+                    {/* <a href="#Ab"> */}
+                    <button className='w-32 h-10 bg-transparent hover:bg-black text-white font-semibold text-xl hover:text-black hover:bg-white hover:border-transparent rounded-xl ml-32'>About Us</button>
+                    {/* </a>    */}</div>
+                    <div>
+                    <button onClick={() => { navigate("/Contact"); }} className='w-32 h-10 bg-transparent hover:bg-black text-white font-semibold text-xl hover:text-black hover:bg-white hover:border-transparent rounded-xl ml-32'>Contact</button>
+                    </div>
+                    <div>
+                    <button onClick={() => { navigate("/login"); }} className='w-32 h-10 bg-transparent hover:bg-black text-white font-semibold text-xl hover:text-black hover:bg-white hover:border-transparent rounded-xl ml-32'>SignIn</button>
+                    </div>
                 </div>
 
 

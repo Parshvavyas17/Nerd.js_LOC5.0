@@ -102,7 +102,7 @@ const EducationInfo = () => {
     }
 
     return (
-        <div className='bg-purple w-full h-fit flex font-ourfont'>
+        <div className='bg-purple w-full h-fit flex font-ourfont font-ourfont'>
             <StudInfoSidebar selected={`Educational`} />
             <div className="container bg-[#F2F2F2] w-full px-10 pt-4 ml-10 rounded-l-3xl flex flex-wrap justify-center items-center">
                 <div className="flex flex-col w-1/2 h1/2 py-8">

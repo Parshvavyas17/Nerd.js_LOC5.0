@@ -88,7 +88,7 @@ const StudentProfile = () => {
 
 
   return (
-    <div className='bg-purple w-full h-screen flex font-main'>
+    <div className='bg-purple w-full h-screen flex font-main font-ourfont'>
         <StudInfoSidebar selected={`Personal`} />
         <div className="bg-[#F2F2F2] w-full h-screen px-10 pt-4 ml-10 rounded-l-3xl flex justify-center items-center">
             <div className="flex flex-col w-1/2 h1/2">
