@@ -6,6 +6,7 @@ import {
   AiFillProfile,
 } from "react-icons/ai";
 import { IoExtensionPuzzleSharp } from "react-icons/io5";
+import { BsFillCalendarWeekFill} from "react-icons/bs";
 import logo from '../assets/Logo.png'
 
 const Sidebar = ({ selected }) => {
@@ -15,15 +16,16 @@ const Sidebar = ({ selected }) => {
     Applications: (
       <IoExtensionPuzzleSharp size="20" style={{ color: "white" }} />
     ),
-    Message: <AiFillMessage size="20" style={{ color: "white" }} />,
+    Calendar: <BsFillCalendarWeekFill size="20" style={{ color: "white" }} />,
     Profile: <AiFillProfile size="20" style={{ color: "white" }} />,
   };
   const links = {
     Dashboard: "/dashboard",
     "Search Job": "/searchjob",
     Applications: "/applicationstud",
-    Message: "/",
+    Calendar: "/calendar",
     Profile: "/edit",
+    Meetings:"/meetings",
   };
   return (
     <div className="h-screen w-1/5">
