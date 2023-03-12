@@ -17,7 +17,7 @@ const Skills=() =>{
     e.preventDefault();
     const data = {
         name: softSkill,
-        level: softScale
+        level: softScale,
     }
     const temp = [...skills, data];
     setSkills(temp);
@@ -64,14 +64,14 @@ const Skills=() =>{
                 skills: skill, 
                 skillsStudent: skills,
             };
-            const response = await axios.patch(`${url}/students/self`, data, {
+            const response = await axios.patch(`${url}/api/user/self`, data, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                     'Content-type': "application/json",
                 }
             });
             console.log(response.data);
-            // alert("Succesful");
+            alert("Succesful");
             navigate('/worksamples');
 
         } catch(error) {

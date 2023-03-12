@@ -5,7 +5,7 @@ const footer = () => {
     return (
         <div>
 
-            <footer class="p-4 bg-gray-500 sm:p-6 dark:bg-gray-900">
+            <footer class=" bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 p-4  sm:p-6 ">
                 <div class="md:flex md:justify-between">
                     <div class="mb-6 md:mb-0">
                         <a href="https://flowbite.com/" class="flex items-center">

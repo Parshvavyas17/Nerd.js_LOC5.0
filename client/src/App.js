@@ -15,6 +15,7 @@ import ApplicationCompany from "./pages/Company/ApplicationCompany";
 import CompanyInformation from "./pages/Company/CompanyInformation";
 import CompanyPostVacancy from "./pages/Company/CompanyPostVacancy";
 import CompanyDashboard from "./pages/Company/CompanyDashboard";
+import Calendar from "./pages/JobSeeker/Calendar";
 import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "./context/appContext";
@@ -40,6 +41,8 @@ function App() {
           <Route path="/companyinformation" element={<CompanyInformation/>}/>
           <Route path="/companypostvacancy" element={<CompanyPostVacancy/>}/>
           <Route path="/companydashboard" element={<CompanyDashboard/>}/>
+          <Route path="/calendar" element={<Calendar/>}/>
+          
 
           
         </Routes>

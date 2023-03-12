@@ -2,7 +2,7 @@ import StudInfoSidebar from "../../components/StudInfoSidebar";
 import { useState, useContext } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-import { AppContext } from "../../context/appContext";
+// import { AppContext } from "../../context/appContext";
 
 
 const EducationInfo = () => {
@@ -79,23 +79,24 @@ const EducationInfo = () => {
                 graduation: grad,
                 hsc:hsc,
                 ssc:ssc,
-                degree: degree,
-                stream: stream,
             };
+            console.log(data);
             const response = await axios.patch(`${url}/api/user/self`, data, {
                 headers: {
-                    "Authorization": `Bearer ${localStorage.getItem('token')}`,
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
                     "Content-type": "application/json",
                 },
             });
             console.log(data);
             console.log(response.data);
-            // console.log(localStorage.getItem('userType'));
-            // alert("Details Added");
+            console.log(localStorage.getItem('userType'));
+            console.log("RTYU")
+            alert("Details Added");
             navigate('/skills');
               
         }
         catch (error) {
+            console.log("RTYU")
             alert("Error Occured");
         }
     }

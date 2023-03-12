@@ -58,7 +58,7 @@ const SignupCompany = () => {
       setContactNo("");
       setTypeChange("");
       // alert("Successfully Registered");
-      navigate("/companyinformation");
+      navigate("/educationinfo");
     } catch(error) {
       setEmail("");
       setPassword("");
