@@ -73,7 +73,7 @@ export default function JobDetails(props) {
   return (
     <>
       {/* Sidebar */}
-      <div className="bg-[#40189D] w-full min-h-screen h-full flex font-main">
+      <div className="bg-[#40189D] w-full min-h-screen h-full flex font-main font-ourfont">
         <Sidebar selected="Search Job" />
         {/* Sidebar */}
         <div className="bg-[#F2F2F2] w-full px-2 ml-10 rounded-l-3xl">

@@ -3,7 +3,9 @@ import { FaGraduationCap } from "react-icons/fa";
 import{GiPencilRuler,GiAchievement} from "react-icons/gi";
 import {IoIosCloudUpload} from "react-icons/io";
 import { CgProfile} from "react-icons/cg";
-import logo from '../assets/logo3.png'
+import logo from '../assets/Logo.png';
+import { BiLogOut} from "react-icons/bi";
+
 const StudInfoSidebar = ({ selected }) => {
   const navs = {
     Personal: <CgProfile size="20" style={{ color: "white" }} />,
@@ -14,7 +16,8 @@ const StudInfoSidebar = ({ selected }) => {
     Skills: <GiPencilRuler size="20" style={{ color: "white" }} />,
     WorkSamples: <IoIosCloudUpload size="20" style={{ color: "white" }} />,
     Experience: <GiAchievement size="20" style={{ color: "white" }} />,
-    
+    Logout: <BiLogOut size="20" style={{ color: "white" }} />
+
   };
   const links = {
     Personal: "/studentprofile",
@@ -23,13 +26,14 @@ const StudInfoSidebar = ({ selected }) => {
     Skills: "/skills",
     WorkSamples: "/worksamples",
     Experience: "/experience",
+    Logout: "/"
     
   };
   return (
     <div className="h-screen w-1/5">
       <div className="flex flex-col h-2/3 justify-evenly ml-2">
         <div className="flex px-2">
-          <img src={logo} alt="HireIt" className="w-2/3"/>
+          <img src={logo} alt="AcqHire" className="w-2/3 border-white border-4 cursor-pointer"/>
         </div>
         {Object.keys(navs).map((key, index) => {
           if (key === selected) {

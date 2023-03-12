@@ -7,6 +7,7 @@ import {
 import { IoExtensionPuzzleSharp } from "react-icons/io5";
 import { BsFillCalendarWeekFill} from "react-icons/bs";
 import logo from '../assets/Logo.png'
+import { BiLogOut} from "react-icons/bi";
 
 const Sidebar = ({ selected }) => {
   const navs = {
@@ -17,6 +18,7 @@ const Sidebar = ({ selected }) => {
     ),
     Calendar: <BsFillCalendarWeekFill size="20" style={{ color: "white" }} />,
     Profile: <AiFillProfile size="20" style={{ color: "white" }} />,
+    Logout: <BiLogOut size="20" style={{ color: "white" }} />
     
   };
   const links = {
@@ -25,14 +27,15 @@ const Sidebar = ({ selected }) => {
     Applications: "/applicationstud",
     Calendar: "/calendar",
     Profile: "/edit",
+    Logout: "/"
     
  
   };
   return (
-    <div className="h-screen w-1/5">
+    <div className="h-screen w-1/5 font-ourfont">
       <div className="flex flex-col h-2/3 justify-evenly ml-2">
         <div className="flex px-2">
-        <img src={logo} alt="HireIt" className="w-3/4  border-4 border-white rounded-lg"/>
+        <img src={logo} alt="AcqHire" className="w-3/4  border-4 border-white rounded-lg cursor-pointer"/>
         </div>
         {Object.keys(navs).map((key, index) => {
           if (key === selected) {

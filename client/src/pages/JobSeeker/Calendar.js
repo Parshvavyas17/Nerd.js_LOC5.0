@@ -43,7 +43,7 @@ const Calendar = () => {
     return (
         <>
         
-            <div className="bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500">
+            <div className="bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 font-ourfont">
                 <p className="text-5xl text-white font-bold ml-10 mt-0">Schedule Your Routine</p>
                 <div className="grid grid-cols-10  mt-16 px-10 ">
                     <div className="col-span-8">
@@ -92,12 +92,12 @@ const Calendar = () => {
                     </div>
                     <div className="">
                         <div>
-                        <button onClick={() => { navigate("/dashboard"); }} className=" h-16 w-48 items-center mt-[625px]  bg-white border-2  border-purple hover:bg-purple text-xl font-semibold hover:text-white rounded-xl"> Back</button>
+                        <button onClick={() => { navigate("/dashboard"); }} className=" h-16 w-48 items-center mt-[500px]  bg-white border-2  border-black hover:bg-black text-xl font-semibold hover:text-white rounded-xl"> Back</button>
                         </div>
                         <div>
 
                         <button  role="link" onClick={() => openInNewTab('https://meet.jit.si/') }
-                        className=" h-16 w-48 items-center  my-4 bg-white border-2  border-purple hover:bg-purple text-xl font-semibold hover:text-white rounded-xl">Start a Meeting</button>
+                        className=" h-16 w-48 items-center  my-4 bg-white border-2  border-black hover:bg-black text-xl font-semibold hover:text-white rounded-xl">Start a Meeting</button>
                         </div>
                     </div>
                     <div className="mt-[793px]"></div>

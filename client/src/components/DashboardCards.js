@@ -6,7 +6,7 @@ const DashboardCards = ({ bg, title, value, icon }) => {
   };
   return (
     <div
-      className="flex w-full rounded-3xl justify-evenly items-center h-full m-0 p-8"
+      className="flex w-full rounded-3xl justify-evenly items-center h-full m-0 p-8 font-ourfont"
       style={color}
     >
       <div className="p-3 border-2 border-white border-solid rounded-xl">

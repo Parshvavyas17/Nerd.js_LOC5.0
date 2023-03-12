@@ -70,7 +70,7 @@ const SignupCompany = () => {
     
   }
   return (
-    <div className="bg-purple w-full h-screen flex text-white justify-evenly items-center font-main">
+    <div className="bg-purple w-full h-screen flex text-white justify-evenly items-center font-main font-ourfont">
       <div className="w-1/2 h-11/12 text-center">
         <h1 className="text-4xl font-semibold inline">We find the </h1>
         <h1 className="text-secondary text-4xl font-semibold inline">Right</h1>
