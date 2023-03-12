@@ -22,7 +22,7 @@ const router = express.Router();
     "contactNo": 9876543210
     }
 */
-router.post("/company", createRecruiter);
+router.post("/", createRecruiter);
 
 /*
     request body
@@ -41,11 +41,11 @@ router.post("/company", createRecruiter);
 //     }
 // });
 
-router.get("/company/self", recruiterAuth, getSelfRecruiter);
+router.get("/self", recruiterAuth, getSelfRecruiter);
 
-router.get("/company/:id", getCompanyById);
+router.get("/:id", getCompanyById);
 
-router.post("/company/logout", recruiterAuth, logout);
+router.post("/logout", recruiterAuth, logout);
 
 /*
     request body
@@ -57,12 +57,12 @@ router.post("/company/logout", recruiterAuth, logout);
     "companyInfo": "My Company"
     }
 */
-router.patch("/company/self", recruiterAuth, updateSelf);
+router.patch("/self", recruiterAuth, updateSelf);
 
-router.delete("/company/self", recruiterAuth, deleteRecruiter);
+router.delete("/self", recruiterAuth, deleteRecruiter);
 
-router.get("/company/self/jobs", getCompanyJobs);
+router.get("/self/jobs", getCompanyJobs);
 
-router.get("/company/self/applicants", recruiterAuth, getCompanyApplicants);
+router.get("/self/applicants", recruiterAuth, getCompanyApplicants);
 
 module.exports = router;

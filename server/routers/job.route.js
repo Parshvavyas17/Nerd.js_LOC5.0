@@ -12,9 +12,9 @@ const {
 
 const router = express.Router();
 
-router.get("/jobs/self", recruiterAuth, getSelfJobs);
+router.get("/self", recruiterAuth, getSelfJobs);
 
-router.get("/job/:id", getJobById);
+router.get("/:id", getJobById);
 
 /*
     {
@@ -29,7 +29,7 @@ router.get("/job/:id", getJobById);
     "duration": 1
     }
 */
-router.post("/jobs", recruiterAuth, createJob);
+router.post("/", recruiterAuth, createJob);
 
 /*
     {
@@ -44,10 +44,10 @@ router.post("/jobs", recruiterAuth, createJob);
         "duration": 3
     }
 */
-router.patch("/jobs/:id", jobAuth, updateJob);
+router.patch("/:id", jobAuth, updateJob);
 
-router.delete("/jobs/:id", jobAuth, deleteJobById);
+router.delete("/:id", jobAuth, deleteJobById);
 
-router.get("/jobs/:id/applications", jobAuth, getJobApplicants);
+router.get("/:id/applications", jobAuth, getJobApplicants);
 
 module.exports = router;

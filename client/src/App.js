@@ -1,6 +1,6 @@
 import "./App.css";
 import Landing from "./pages/Landing";
-import Login from "./pages/Authentication/Login"
+import Login from "./pages/Authentication/Login";
 import SignupCompany from "./pages/Authentication/SignupCompany";
 import Dashboard from "./pages/JobSeeker/Dashboard";
 import SearchJob from "./pages/JobSeeker/SearchJob";
@@ -21,31 +21,27 @@ import { useContext } from "react";
 import { AppContext } from "./context/appContext";
 
 function App() {
-  const { token } = useContext(AppContext);
   return (
     <>
-         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/signup" element={< SignupCompany/>} />
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/dashboard" element={<Dashboard/>}/>
-          <Route path="/searchjob" element={<SearchJob/>}/>
-          <Route path="/applicationstud" element={<ApplicationStud/>}/>
-          <Route path="/edit" element={<Edit/>}/>
-          <Route path="/studentprofile" element={<StudentProfile/>}/>
-          <Route path="/educationinfo" element={<EducationInfo/>}/>
-          <Route path="/skills" element={<Skills/>}/>
-          <Route path="/worksamples" element={<WorkSamples/>}/>
-          <Route path="/experience" element={<Experience/>}/>
-          <Route path="/applicationcompany" element={<ApplicationCompany/>}/>
-          <Route path="/companyinformation" element={<CompanyInformation/>}/>
-          <Route path="/companypostvacancy" element={<CompanyPostVacancy/>}/>
-          <Route path="/companydashboard" element={<CompanyDashboard/>}/>
-          <Route path="/calendar" element={<Calendar/>}/>
-          
-
-          
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/signup" element={<SignupCompany />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/searchjob" element={<SearchJob />} />
+        <Route path="/applicationstud" element={<ApplicationStud />} />
+        <Route path="/edit" element={<Edit />} />
+        <Route path="/studentprofile" element={<StudentProfile />} />
+        <Route path="/educationinfo" element={<EducationInfo />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/worksamples" element={<WorkSamples />} />
+        <Route path="/experience" element={<Experience />} />
+        <Route path="/applicationcompany" element={<ApplicationCompany />} />
+        <Route path="/companyinformation" element={<CompanyInformation />} />
+        <Route path="/companypostvacancy" element={<CompanyPostVacancy />} />
+        <Route path="/companydashboard" element={<CompanyDashboard />} />
+        <Route path="/calendar" element={<Calendar />} />
+      </Routes>
     </>
     // <Router>
     //   <Routes>

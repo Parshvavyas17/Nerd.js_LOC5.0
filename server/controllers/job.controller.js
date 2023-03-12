@@ -12,8 +12,8 @@ const getSelfJobs = async (req, res) => {
 
 const getJobById = async (req, res) => {
   try {
-    const id = mongoose.Types.ObjectId(req.params.id);
-    const job = await Job.find({ _id: id });
+    const id = new mongoose.Types.ObjectId(req.params.id);
+    const job = await Job.findOne({ _id: id });
     res.status(200).send(job);
   } catch (error) {
     console.log(error.message);

@@ -29,8 +29,7 @@ const getSelfRecruiter = async (req, res) => {
 
 const getCompanyById = async (req, res) => {
   try {
-    const id = mongoose.Types.ObjectId(req.params.id);
-    const comp = await Recruiter.findOne({ _id: id });
+    const comp = await Recruiter.findOne({ _id: req.params.id });
     res.status(200).send(comp);
   } catch (error) {
     console.log(error.message);

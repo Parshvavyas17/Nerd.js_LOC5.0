@@ -11,7 +11,7 @@ const SearchJob = () => {
   const [jobs, setJobs] = useState([]);
 
   const url = "http://localhost:5000";
-  const joburl = "http://localhost:7000";
+  const joburl = "http://localhost:8000";
 
   useEffect(() => {
     const getDashboard = async () => {
@@ -32,26 +32,29 @@ const SearchJob = () => {
         console.log(user);
         setStudent(user);
       })
-      .catch(() => setJobs([]));
+      .catch(() => {
+        // setJobs([])
+        console.log("Request Failed");
+      });
     console.log(student);
   }, []);
 
   useEffect(() => {
-    const getJobs = async (student) => {
+    const getJobs = async () => {
       const data = {
-        title: student.title,
-        skills: student.skills,
-        location: student.currentCity,
+        title: "Graphic Designer",
+        skills: "Adobe",
+        location: "Bangalore",
         jobType: "Job",
         experience: 5,
       };
-      console.log(
-        data.title,
-        data.skills,
-        data.location,
-        data.jobType,
-        data.experience
-      );
+      // console.log(
+      //   data.title,
+      //   data.skills,
+      //   data.location,
+      //   data.jobType,
+      //   data.experience
+      // );
       try {
         const response = await axios.post(
           `${joburl}/rec`,
@@ -60,7 +63,7 @@ const SearchJob = () => {
             headers: data,
           }
         );
-        // console.log(response.data);
+        console.log("Response: ", response.data);
         return response.data;
       } catch (error) {
         console.log(error.message);
@@ -68,16 +71,15 @@ const SearchJob = () => {
       }
     };
     {
-      student &&
-        getJobs(student)
-          .then((id) => {
-            console.log(id);
-            setJobs(id);
-          })
-          .catch((err) => {
-            console.log(err.message);
-            setJobs(null);
-          });
+      getJobs()
+        .then((id) => {
+          console.log("Get Jobs:", id);
+          setJobs(id);
+        })
+        .catch((err) => {
+          console.log(err.message);
+          setJobs(null);
+        });
     }
   }, [student]);
 
@@ -90,7 +92,7 @@ const SearchJob = () => {
         <div className="text-xs text-[#808080]"> Based on the Preferences</div>
 
         <div className="grid grid-cols-3 gap-5">
-          <Card jid={jobs["ids"] ? jobs["ids"][0] : null} />
+          {/* <Card jid={jobs["ids"] ? jobs["ids"][0] : null} />
           <Card jid={jobs["ids"] ? jobs["ids"][1] : null} />
           <Card jid={jobs["ids"] ? jobs["ids"][2] : null} />
           <Card jid={jobs["ids"] ? jobs["ids"][3] : null} />
@@ -98,7 +100,10 @@ const SearchJob = () => {
           <Card jid={jobs["ids"] ? jobs["ids"][5] : null} />
           <Card jid={jobs["ids"] ? jobs["ids"][6] : null} />
           <Card jid={jobs["ids"] ? jobs["ids"][7] : null} />
-          <Card jid={jobs["ids"] ? jobs["ids"][8] : null} />
+          <Card jid={jobs["ids"] ? jobs["ids"][8] : null} /> */}
+          {jobs?.ids
+            ? jobs.ids.map((id) => <Card jid={id} />)
+            : "Loading Please Wait"}
         </div>
 
         <div className="text-black text-sm font-normal mt-5">
