@@ -19,6 +19,8 @@ import Calendar from "./pages/JobSeeker/Calendar";
 import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "./context/appContext";
+import Contact from "../src/components/Contact"
+
 
 function App() {
   const { token } = useContext(AppContext);
@@ -42,10 +44,12 @@ function App() {
           <Route path="/companypostvacancy" element={<CompanyPostVacancy/>}/>
           <Route path="/companydashboard" element={<CompanyDashboard/>}/>
           <Route path="/calendar" element={<Calendar/>}/>
+          <Route path="/Contact" element={<Contact/>}/>
           
 
           
-        </Routes>
+      </Routes>
+  
     </>
     // <Router>
     //   <Routes>
