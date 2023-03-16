@@ -14,10 +14,10 @@ const router = express.Router();
 router.post("/:id", userAuth, createApplication);
 
 // id is job token
-router.get("/jobs/:id", getJobApplications);
+router.get("/job/:id", getJobApplications);
 
 // id is student token
-router.get("/students/:id", getStudentApplications);
+router.get("/user/:id", getStudentApplications);
 
 /*
     request body
@@ -26,6 +26,6 @@ router.get("/students/:id", getStudentApplications);
     }
 */
 // id is job token and appId is application _id
-router.patch("/jobs/:id/students/:appId", jobAuth, getJobApplicants);
+router.patch("/job/:id/student/:appId", jobAuth, getJobApplicants);
 
 module.exports = router;

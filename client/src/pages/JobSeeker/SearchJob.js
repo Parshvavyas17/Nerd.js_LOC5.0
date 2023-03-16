@@ -16,7 +16,7 @@ const SearchJob = () => {
   useEffect(() => {
     const getDashboard = async () => {
       try {
-        const response = await axios.get(`${url}/students/self`, {
+        const response = await axios.get(`${url}/student/self`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -84,7 +84,7 @@ const SearchJob = () => {
   }, [student]);
 
   return (
-    <div className="bg-[#40189D] w-full min-h-screen h-full flex font-main font-ourfont">
+    <div className="bg-[#40189D] w-full min-h-screen h-full flex font-ourfont">
       <Sidebar selected="Search Job" />
       <div className="bg-[#F2F2F2] w-full px-10 pt-4 ml-10 rounded-l-3xl">
         <Header heading="Job Details" user="Oda Dink" />

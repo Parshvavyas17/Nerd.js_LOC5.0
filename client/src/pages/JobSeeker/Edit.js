@@ -6,10 +6,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Edit(props) {
+export default function Edit() {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     navigate("/dashboard");
   };
 
@@ -20,7 +21,7 @@ export default function Edit(props) {
   useEffect(() => {
     const getEdit = async () => {
       try {
-        const response = await axios.get(`${url}/students/self`, {
+        const response = await axios.get(`${url}/api/user/self`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -33,17 +34,16 @@ export default function Edit(props) {
     getEdit()
       .then((user) => {
         console.log(user);
-        setEdit(user);
+        setEdit(user.user);
       })
-      .catch(() => setEdit([]));
-    console.log(edit);
+      .catch((err) => console.log(err));
   }, []);
 
   // console.log(edit.degree);
   return (
     <>
       {/* Sidebar */}
-      <div className="bg-[#40189D] w-full min-h-screen flex font-main font-ourfont">
+      <div className="bg-[#40189D] w-full min-h-screen flex font-ourfont">
         <Sidebar selected="Profile" />
         {/* Sidebar */}
         <div className="bg-[#F2F2F2] w-full rounded-l-3xl">
@@ -71,23 +71,21 @@ export default function Edit(props) {
                 <hr />
                 <div className="flex justify-between m-3">
                   <p>
-                    {edit && `${edit.degree} in ${edit.stream}`
-                      ? `${edit.degree} in ${edit.stream}`
-                      : "Degree or Stream not entered!"}
+                    {edit?.graduation?.gradStatus
+                      ? `Graduation ${edit.graduation.gradStatus}`
+                      : "Graduation"}
                     <br />
-                    {edit && edit.graduation
+                    {edit?.graduation?.college
                       ? edit.graduation.college
-                      : "College not entered!"}
+                      : "Government College"}
                     <br />
-                    {edit &&
-                    edit.graduation &&
-                    `${edit.graduation.startYear} - ${edit.graduation.endYear}`
+                    {edit?.graduation?.startYear && edit?.graduation?.endYear
                       ? `${edit.graduation.startYear} - ${edit.graduation.endYear}`
-                      : "Start or End year not entered!"}
+                      : "2020 - 2024"}
                   </p>
                   <p className="font-bold">
                     CGPA:
-                    {edit && edit.graduation
+                    {edit?.graduation?.score
                       ? edit.graduation.score
                       : "Marks not entered!"}
                   </p>
@@ -97,14 +95,14 @@ export default function Edit(props) {
                   <p>
                     Higher Secondary School Certificate
                     <br />
-                    {edit && edit.hsc
+                    {edit?.hsc?.college
                       ? edit.hsc.college
                       : "College not entered!"}
                     <br />
                   </p>
                   <p className="font-bold">
                     Percentage:{" "}
-                    {edit && edit.hsc ? edit.hsc.score : "Marks not entered!"}
+                    {edit?.hsc?.score ? edit.hsc.score : "Marks not entered!"}
                   </p>
                 </div>
                 <hr />
@@ -112,14 +110,14 @@ export default function Edit(props) {
                   <p>
                     SSC
                     <br />
-                    {edit && edit.ssc
+                    {edit?.ssc?.college
                       ? edit.ssc.college
                       : "College not entered!"}
                     <br />
                   </p>
                   <p className="font-bold">
                     Percentage:{" "}
-                    {edit && edit.ssc ? edit.ssc.score : "Marks not entered!"}
+                    {edit?.ssc?.score ? edit.ssc.score : "Marks not entered!"}
                   </p>
                 </div>
                 <hr className="colour=[#F2F2F2]" />
@@ -134,7 +132,7 @@ export default function Edit(props) {
                 <hr />
 
                 <div className="grid grid-cols-2">
-                  {edit && edit.skillsStudent
+                  {edit?.skillsStudent
                     ? edit.skillsStudent.map((element) => {
                         return (
                           <div className="m-3">
@@ -151,32 +149,32 @@ export default function Edit(props) {
                 <div className="bg-white rounded-[34px]">
                   <div className="flex justify-center">
                     <h4 className="font-semibold text-base">
-                      {edit && `${edit.firstName} ${edit.lastName}`
-                        ? `${edit.firstName} ${edit.lastName}`
-                        : "No name entered!"}
+                      {edit?.name ? `${edit.name}` : "No name entered!"}
                     </h4>
                   </div>
                   <div className="flex justify-center mb-2">
                     <p className="text-sm">
-                      {edit ? edit.title : "Title not entered"}
+                      {edit?.title ? edit.title : "Title not entered"}
                     </p>
                   </div>
                   <hr />
 
                   <div className="flex justify-evenly mt-5">
                     <p className="text-sm ml-3 mt-2">
-                      {edit ? edit.mobileNo : "Mobile No. not found!"}
+                      {edit?.mobileNo ? edit.mobileNo : "Mobile No. not found!"}
                     </p>
                   </div>
                   <div className="flex justify-evenly mt-5">
                     <p className="text-sm ml-3 mt-2">
-                      {edit ? edit.email : ""}
+                      {edit?.email ? edit.email : ""}
                     </p>
                   </div>
 
                   <div className="flex justify-evenly mt-5 ml-[24px]">
                     <p className="text-sm ml-3 mt-2">
-                      {edit ? edit.currentCity : "Current city not found!"}
+                      {edit?.currentCity
+                        ? edit.currentCity
+                        : "Current city not found!"}
                     </p>
                   </div>
 
@@ -199,7 +197,7 @@ export default function Edit(props) {
                       <rect width="30" height="30" rx="10" fill="#FE434E" />
                     </svg>
                     <a href="#">
-                      {edit && edit.githubLink && edit.githubLink.link
+                      {edit?.githubLink?.link
                         ? edit.githubLink.link
                         : "GitHub link not not entered!"}
                     </a>
@@ -216,7 +214,7 @@ export default function Edit(props) {
                       <rect width="30" height="30" rx="10" fill="#8AC740" />
                     </svg>
                     <a href="#">
-                      {edit && edit.blogLink && edit.blogLink.link
+                      {edit?.blogLink?.link
                         ? edit.blogLink.link
                         : "Blog link not entered!"}
                     </a>
@@ -233,7 +231,7 @@ export default function Edit(props) {
                       <rect width="30" height="30" rx="10" fill="#FA8A24" />
                     </svg>
                     <a href="#">
-                      {edit && edit.behanceLink && edit.behanceLink.link
+                      {edit?.behanceLink?.link
                         ? edit.behanceLink.link
                         : "Behance link not entered!"}
                     </a>
@@ -250,9 +248,7 @@ export default function Edit(props) {
                       <rect width="30" height="30" rx="10" fill="#79AEF4" />
                     </svg>
                     <a href="#">
-                      {edit &&
-                      edit.otherPortfolioLink &&
-                      edit.otherPortfolioLink.link
+                      {edit?.otherPortfolioLink?.link
                         ? edit.otherPortfolioLink.link
                         : "Other portfolio links not entered!"}
                     </a>

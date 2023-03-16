@@ -9,10 +9,11 @@ import Chart from "../../components/Chart";
 import Card from "../../components/Card";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
-const Dashboard = (props) => {
+const Dashboard = () => {
   const navigate = useNavigate();
-  const [student, setStudent] = useState(undefined);
+  const [student, setStudent] = useState({});
   const [jobs, setJobs] = useState([]);
   const [app, setApp] = useState(0);
   const [view, setView] = useState(0);
@@ -20,19 +21,21 @@ const Dashboard = (props) => {
   const [noOfJob, setNoOfJob] = useState(0);
 
   const url = "http://localhost:5000";
-  const joburl = "http://localhost:7000";
+  const joburl = "http://localhost:8000";
 
   useEffect(() => {
     const getDashboard = async () => {
       try {
-        const response = await axios.get(`${url}/students/self`, {
+        const response = await axios.get(`${url}/api/user/self`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
-        return response.data;
+        if (response.data.user) console.log(response.data.user);
+        else console.log(response.data);
+        return response.data.user;
       } catch (error) {
-        return null;
+        return {};
       }
     };
 
@@ -40,35 +43,38 @@ const Dashboard = (props) => {
       .then((user) => {
         setStudent(user);
       })
-      .catch(() => setJobs([]));
+      .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
     const getApplications = async () => {
       try {
         const response = await axios.get(
-          `${url}/applications/students/${localStorage.getItem("token")}`
+          `${url}/api/application/user/${student._id}`
         );
         return response.data;
       } catch (error) {
         return null;
       }
     };
-    getApplications().then((appl) => {
-      setApp(appl.length);
-      let x = 0;
-      let y = 0;
-      appl.forEach((element) => {
-        if (element.status === "viewed") {
-          x = x + 1;
-        } else if (element.status === "selected") {
-          y = y + 1;
-        }
-        setView(x);
-        setSelected(y);
+    if (student) {
+      getApplications().then((appl) => {
+        setJobs(appl);
+        setApp(appl.length);
+        let x = 0;
+        let y = 0;
+        appl.forEach((element) => {
+          if (element.status === "viewed") {
+            x = x + 1;
+          } else if (element.status === "selected") {
+            y = y + 1;
+          }
+          setView(x);
+          setSelected(y);
+        });
       });
-    });
-  }, []);
+    }
+  }, [student]);
 
   useEffect(() => {
     const getJobs = async (student) => {
@@ -98,12 +104,10 @@ const Dashboard = (props) => {
         getJobs(student)
           .then((id) => {
             console.log(id);
-            setJobs(id);
             setNoOfJob(id.ids.length);
           })
           .catch((err) => {
             console.log(err.message);
-            setJobs(null);
           });
     }
   }, [student, app]);
@@ -113,7 +117,7 @@ const Dashboard = (props) => {
   };
 
   return (
-    <div className="bg-purple w-screen min-h-screen h-full flex font-main font-ourfont">
+    <div className="bg-purple w-screen min-h-screen h-full flex font-ourfont">
       <Sidebar selected="Dashboard" />
       <div className="bg-[#F2F2F2] flex flex-col justify-evenly w-full pt-2 px-10 pb-5 ml-10 rounded-l-3xl">
         <Header heading="Dashboard" user="Oda Dink" />
@@ -148,16 +152,14 @@ const Dashboard = (props) => {
             {/* profile pic */}
             <div className="w-10 h-10 bg-black rounded-full"></div>
             <p className="font-bold">
-              {student && `${student.firstName} ${student.lastName}`
-                ? `${student.firstName} ${student.lastName}`
-                : "No name entered!"}
+              {student?.name ? student.name : "Anonymous User"}
             </p>
-            <p>{student ? student.title : "No student title entered!"}</p>
-            {student && student.skills
-              ? student.skills
-                  .split(" ")
-                  .map((skill) => <p key={skill}>{skill}</p>)
-              : "No skills yet"}
+            <p>{student?.title ? student.title : "Open to Work"}</p>
+            {student?.skillSet
+              ? student.skillSet.map((skill) => (
+                  <p key={uuidv4()}>{skill.name}</p>
+                ))
+              : "Unknown skills"}
           </div>
           <div className="w-[74%] h-full bg-white rounded-3xl">
             <Chart />
@@ -166,9 +168,14 @@ const Dashboard = (props) => {
         <div className="my-2">
           <p className="font-bold">Recommended Jobs</p>
           <div className="flex">
-            <Card jid={jobs && jobs["ids"] ? jobs["ids"][0] : null} />
+            {jobs && jobs.length > 0
+              ? jobs.map((job) => (
+                  <Card jid={`6307bc06997f86d84884bb9f`} key={uuidv4()} />
+                ))
+              : ""}
+            {/* <Card jid={jobs && jobs["ids"] ? jobs["ids"][0] : null} />
             <Card jid={jobs && jobs["ids"] ? jobs["ids"][1] : null} />
-            <Card jid={jobs && jobs["ids"] ? jobs["ids"][2] : null} />
+            <Card jid={jobs && jobs["ids"] ? jobs["ids"][2] : null} /> */}
           </div>
           <button
             onClick={handleSubmit}

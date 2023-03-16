@@ -41,7 +41,7 @@ function App() {
         <Route path="/companypostvacancy" element={<CompanyPostVacancy />} />
         <Route path="/companydashboard" element={<CompanyDashboard />} />
         <Route path="/calendar" element={<Calendar />} />
-        <Route path="/Contact" element={<Contact />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/jobDetails/:jid" element={<JobDetails />} />
       </Routes>
     </>

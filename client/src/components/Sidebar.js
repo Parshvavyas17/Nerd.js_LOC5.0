@@ -1,25 +1,25 @@
 import React from "react";
-import {
-  AiFillHome,
-  AiOutlineSearch,
-  AiFillProfile,
-} from "react-icons/ai";
+import { AiFillHome, AiOutlineSearch, AiFillProfile } from "react-icons/ai";
 import { IoExtensionPuzzleSharp } from "react-icons/io5";
-import { BsFillCalendarWeekFill} from "react-icons/bs";
-import logo from '../assets/Logo.png'
-import { BiLogOut} from "react-icons/bi";
+import { BsFillCalendarWeekFill } from "react-icons/bs";
+import logo from "../assets/Logo.png";
+import { BiLogOut } from "react-icons/bi";
 
 const Sidebar = ({ selected }) => {
   const navs = {
-    Dashboard: <a href="/dashboard"><AiFillHome size="20" style={{ color: "white" }}/> </a>,
+    Dashboard: (
+      <a href="/dashboard">
+        <AiFillHome size="20" style={{ color: "white" }} />{" "}
+      </a>
+    ),
     "Search Job": <AiOutlineSearch size="20" style={{ color: "white" }} />,
     Applications: (
       <IoExtensionPuzzleSharp size="20" style={{ color: "white" }} />
     ),
     Calendar: <BsFillCalendarWeekFill size="20" style={{ color: "white" }} />,
     Profile: <AiFillProfile size="20" style={{ color: "white" }} />,
-    Logout: <BiLogOut size="20" style={{ color: "white" }} />
-    
+    "Nearby Users": <AiFillProfile size={20} style={{ color: "white" }} />,
+    Logout: <BiLogOut size="20" style={{ color: "white" }} />,
   };
   const links = {
     Dashboard: "/dashboard",
@@ -27,15 +27,18 @@ const Sidebar = ({ selected }) => {
     Applications: "/applicationstud",
     Calendar: "/calendar",
     Profile: "/edit",
-    Logout: "/"
-    
- 
+    Logout: "/",
+    "Nearby Users": "/",
   };
   return (
     <div className="h-screen w-1/5 font-ourfont">
       <div className="flex flex-col h-2/3 justify-evenly ml-2">
         <div className="flex px-2">
-        <img src={logo} alt="AcqHire" className="w-3/4  border-4 border-white rounded-lg cursor-pointer"/>
+          <img
+            src={logo}
+            alt="AcqHire"
+            className="w-3/4  border-4 border-white rounded-lg cursor-pointer"
+          />
         </div>
         {Object.keys(navs).map((key, index) => {
           if (key === selected) {
@@ -45,7 +48,10 @@ const Sidebar = ({ selected }) => {
                 className="flex justify-start mt-2 items-center px-4"
               >
                 {navs[key]}
-                <a href={links[key]} className="bg-[#F2F2F2] h-10 w-28 rounded-2xl ml-3 p-2 text-base font-bold text-center">
+                <a
+                  href={links[key]}
+                  className="bg-[#F2F2F2] h-10 w-28 rounded-2xl ml-3 p-2 text-base font-bold text-center"
+                >
                   {key}
                 </a>
               </div>
@@ -57,7 +63,10 @@ const Sidebar = ({ selected }) => {
                 className="flex justify-start mt-2 items-center ml-2 px-2 "
               >
                 {navs[key]}
-                <a href={links[key]} className=" text-white text-base font-bold ml-5">
+                <a
+                  href={links[key]}
+                  className=" text-white text-base font-bold ml-5"
+                >
                   {key}
                 </a>
               </div>
